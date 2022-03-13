@@ -1,8 +1,15 @@
-const express = require('express');
+const app = require('express')();
+const bodyParser = require('body-parser');
+// const userRouter = require('./routers/userRouter');
 
-const app = express();
+require('dotenv').config();
+app.use(bodyParser.json());
 
-app.listen(3000, () => console.log('ouvindo porta 3000!'));
+// app.use('/products', userRouter);
+
+app.listen(process.env.PORT, () => {
+  console.log(`Escutando na porta ${process.env.PORT}`);
+});
 
 // não remova esse endpoint, e para o avaliador funcionar
 app.get('/', (request, response) => {
