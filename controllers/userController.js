@@ -8,4 +8,8 @@ const addUserController = async (req, res) => {
         return console.error(error);
     }
   };
+
+  module.exports = {
+      addUserController,
+  }
   
