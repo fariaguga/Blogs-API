@@ -4,7 +4,7 @@ const emailValidation = (req, res, next) => {
         const regex = /\S+@\S+\.\S+/;
         const regexEmail = regex.test(String(email).toLocaleLowerCase());
   
-        if (!email|| email=== '') {
+        if (!email || email === '') {
             return res.status(400).json({ message: '"email" is required' });
         }
   

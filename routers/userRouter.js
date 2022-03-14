@@ -13,5 +13,4 @@ const validateUser = [
 
 router.post('/', validateUser, addUserController);
 
-
 module.exports = router;

@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const userRouter = require('./routers/userRouter');
 
 require('dotenv').config();
+
 app.use(bodyParser.json());
 
 app.use('/user', userRouter);

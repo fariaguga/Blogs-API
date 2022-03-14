@@ -5,7 +5,12 @@ const addUserController = async (req, res) => {
         const { displayName, email, password, image } = req.body;
         console.log(displayName, email, password, image);
 
-        const { code, message, token } = await userService.addUserService(displayName ,email, password, image );
+        const { code, message, token } = await userService.addUserService(
+            displayName,
+            email,
+            password,
+            image,
+            );
         if (message) return res.status(code).json({ message });
         return res.status(code).json({ token });
     } catch (error) {
@@ -15,5 +20,4 @@ const addUserController = async (req, res) => {
 
   module.exports = {
       addUserController,
-  }
-  
+  };  

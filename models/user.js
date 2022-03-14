@@ -2,7 +2,7 @@ const { DataTypes } = require('sequelize');
 
 const Attributes = {
   id: {
-    type:DataTypes.INTEGER,
+    type: DataTypes.INTEGER,
     allowNull: false,
     primaryKey: true,
     autoIncrement: true,
@@ -10,26 +10,26 @@ const Attributes = {
   },
 
   displayName: {
-    type:DataTypes.STRING,
+    type: DataTypes.STRING,
     // allowNull: false,
-    //field: 'display_name',
+    // field: 'display_name',
   },
 
   email: {
-    type:DataTypes.STRING,
+    type: DataTypes.STRING,
     unique: true,
     // allowNull: false,
     // field: 'email',
   },
 
   password: {
-    type:DataTypes.STRING,
+    type: DataTypes.STRING,
     // allowNull: false,
     // field: 'password',
   },
 
   image: {
-    type:DataTypes.STRING,
+    type: DataTypes.STRING,
     // allowNull: false,
     // field: 'image',
   },
@@ -45,7 +45,6 @@ module.exports = (sequelize) => {
       tableName: 'Users',
     },
   );
-
 
   return User;
 };
