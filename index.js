@@ -1,11 +1,11 @@
 const app = require('express')();
 const bodyParser = require('body-parser');
-// const userRouter = require('./routers/userRouter');
+const userRouter = require('./routers/userRouter');
 
 require('dotenv').config();
 app.use(bodyParser.json());
 
-// app.use('/products', userRouter);
+app.use('/user', userRouter);
 
 app.listen(process.env.PORT, () => {
   console.log(`Escutando na porta ${process.env.PORT}`);
