@@ -11,26 +11,26 @@ const Attributes = {
 
   displayName: {
     type:DataTypes.STRING,
-    allowNull: false,
-    // field: 'display_name',
+    // allowNull: false,
+    //field: 'display_name',
   },
 
   email: {
     type:DataTypes.STRING,
     unique: true,
-    allowNull: false,
+    // allowNull: false,
     // field: 'email',
   },
 
   password: {
     type:DataTypes.STRING,
-    allowNull: false,
+    // allowNull: false,
     // field: 'password',
   },
 
   image: {
     type:DataTypes.STRING,
-    allowNull: false,
+    // allowNull: false,
     // field: 'image',
   },
 };
@@ -40,7 +40,7 @@ module.exports = (sequelize) => {
     'User',
     Attributes,
     {
-      underscored: true,
+      underscore: true,
       timestamps: false,
       tableName: 'Users',
     },
