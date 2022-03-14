@@ -1,14 +1,18 @@
 const { User } = require('../models');
+const jwtGenerator = require('../helpers/jwtGenerator');
 
 const addUserService = async (displayName, email, password, image) => {
-    const users = await User.findAll();
-    const emailValidation = users.some((e) => e.email === email);
-    const data = await User.create(displayName, email, password, image);
+  const alreadyExists = await User.findOne({ where: { email } });
+
     
-    if (emailValidation === true) {
+    if (alreadyExists) {
       return { code: 409, message: 'User already exists' };
     }
-    return { code: 201, data };
+    
+    const newUser = await User.create({ displayName, email, password, image });
+
+    const token = jwtGenerator({ id: newUser.id, displayName});
+    return { code: 201, token };
 }
 
 module.exports = {
