@@ -2,10 +2,12 @@ const userService = require('../services/userService');
 
 const addUserController = async (req, res) => {
     try {
-        const { email, password, image } = req.body;
-        const { code, message, data } = await userService.addUserService(email, password, image );
+        const { displayName, email, password, image } = req.body;
+        console.log(displayName, email, password, image);
+
+        const { code, message, token } = await userService.addUserService(displayName ,email, password, image );
         if (message) return res.status(code).json({ message });
-        return res.status(code).json(data);
+        return res.status(code).json({ token });
     } catch (error) {
         return console.error(error);
     }
