@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 
 app.use('/user', userRouter);
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log(`Escutando na porta ${process.env.PORT}`);
 });
 
