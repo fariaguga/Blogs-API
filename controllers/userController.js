@@ -19,9 +19,9 @@ const addUserController = async (req, res) => {
 
   const getAllUsersController = async (req, res) => {
     try {
-        const { code, message, users } = await userService.getAllUsers();
+        const { code, message, users } = await userService.getAllUsersService();
         if (message) return res.status(code).json({ message });
-        return res.status(code).json({ users });
+        return res.status(code).json(users);
     } catch (error) {
         return console.error(error);
     }
