@@ -1,7 +1,7 @@
 const express = require('express');
-const { addUserController } = require('../controllers/userController');
+const { addUserController, getAllUsersController } = require('../controllers/userController');
 const middlewares = require('../middlewares/index');
- // const { auth } = require('../middlewares/auth.middleware');
+const { auth } = require('../middlewares/auth.middleware');
 
 const router = express.Router();
 
@@ -12,5 +12,5 @@ const validateUser = [
   ];
 
 router.post('/', validateUser, addUserController);
-// router.get('/', auth, addUserController);
+router.get('/', auth, getAllUsersController);
 module.exports = router;
