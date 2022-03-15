@@ -12,11 +12,7 @@ const auth = async (req, res, next) => {
 
     next();
   } catch (error) {
-    if (error.name.includes('Token')) {
       return res.status(401).json({ message: 'Expired or invalid token' });
-    }
-
-    next(error);
   }
 };
 module.exports = { auth };
