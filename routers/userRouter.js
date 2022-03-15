@@ -1,5 +1,9 @@
 const express = require('express');
-const { addUserController, getAllUsersController } = require('../controllers/userController');
+const {
+  addUserController,
+  getAllUsersController,
+  getUserByIdController,
+} = require('../controllers/userController');
 const middlewares = require('../middlewares/index');
 const { auth } = require('../middlewares/auth.middleware');
 
@@ -13,4 +17,5 @@ const validateUser = [
 
 router.post('/', validateUser, addUserController);
 router.get('/', auth, getAllUsersController);
+router.get('/:id', auth, getUserByIdController);
 module.exports = router;
