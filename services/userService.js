@@ -5,7 +5,7 @@ const addUserService = async (displayName, email, password, image) => {
   const alreadyExists = await User.findOne({ where: { email } });
 
     if (alreadyExists) {
-      return { code: 409, message: 'User already registred' };
+      return { code: 409, message: 'User already registered' };
     }
     
     const newUser = await User.create({ displayName, email, password, image });
