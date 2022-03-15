@@ -3,7 +3,6 @@ const userService = require('../services/userService');
 const addUserController = async (req, res) => {
     try {
         const { displayName, email, password, image } = req.body;
-        console.log(displayName, email, password, image);
 
         const { code, message, token } = await userService.addUserService(
             displayName,
@@ -18,6 +17,17 @@ const addUserController = async (req, res) => {
     }
   };
 
+  const getAllUsersController = async (req, res) => {
+    try {
+        const { code, message, users } = await userService.getAllUsers();
+        if (message) return res.status(code).json({ message });
+        return res.status(code).json({ users });
+    } catch (error) {
+        return console.error(error);
+    }
+  };
+
   module.exports = {
       addUserController,
+      getAllUsersController,
   };  
