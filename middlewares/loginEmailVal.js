@@ -1,11 +1,12 @@
-const emailValidation = (req, res, next) => {
+const loginEmailVal = (req, res, next) => {
     try {
         const { email } = req.body;
         const regex = /\S+@\S+\.\S+/;
         const regexEmail = regex.test(String(email).toLocaleLowerCase());
   
-        if (!email || email === '') {
-            return res.status(400).json({ message: '"email" is required' });
+        if (email === undefined) return res.status(400).json({ message: '"email" is required' });
+        if (email === '') {
+            return res.status(400).json({ message: '"email" is not allowed to be empty' });
         }
   
         if (!regexEmail) {
@@ -19,4 +20,4 @@ const emailValidation = (req, res, next) => {
         return next(error);
     }
   };
-  module.exports = emailValidation;
+  module.exports = loginEmailVal;

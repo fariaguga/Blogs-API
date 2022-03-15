@@ -6,8 +6,8 @@ const middlewares = require('../middlewares/index');
 const router = express.Router();
 
 const validateLogin = [
-    middlewares.emailValidation,
-    middlewares.passwordValidation,
+    middlewares.loginEmailVal,
+    middlewares.loginPassVal,
   ];
 
 router.post('/', validateLogin, signController);
