@@ -14,6 +14,16 @@ const addUserService = async (displayName, email, password, image) => {
     return { code: 201, token };
 };
 
+const getAllUsersService = async () => {
+  const users = await User.findAll();
+
+    if (!users) {
+      return { code: 409, message: 'Not users in db' };
+    }
+    return { code: 200, users };
+};
+
 module.exports = {
     addUserService,
+    getAllUsersService,
 };
