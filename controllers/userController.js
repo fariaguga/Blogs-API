@@ -27,7 +27,19 @@ const addUserController = async (req, res) => {
     }
   };
 
+  const getUserByIdController = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { code, message, users } = await userService.getUserByIdService(id);
+        if (message) return res.status(code).json({ message });
+        return res.status(code).json(users);
+    } catch (error) {
+        return console.error(error);
+    }
+  };
+
   module.exports = {
       addUserController,
       getAllUsersController,
+      getUserByIdController,
   };  
