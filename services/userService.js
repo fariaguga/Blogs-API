@@ -23,7 +23,17 @@ const getAllUsersService = async () => {
     return { code: 200, users };
 };
 
+const getUserByIdService = async (id) => {
+  const users = await User.findOne({ where: { id } });
+
+    if (!users) {
+      return { code: 404, message: 'User does not exist' };
+    }
+    return { code: 200, users };
+};
+
 module.exports = {
     addUserService,
     getAllUsersService,
+    getUserByIdService,
 };
