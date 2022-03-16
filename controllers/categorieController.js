@@ -13,6 +13,18 @@ const addCategorieController = async (req, res) => {
         return console.error(error);
     }
   };
+
+  const getCategoriesCotroller = async (req, res) => {
+    try {
+        const { code, message, categories } = await categorieService.getCategoriesService();
+        if (message) return res.status(code).json({ message });
+        return res.status(code).json(categories);
+    } catch (error) {
+        return console.error(error);
+    }
+  };
+
   module.exports = {
     addCategorieController,
+    getCategoriesCotroller,
   };
