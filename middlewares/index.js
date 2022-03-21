@@ -4,6 +4,9 @@ const passwordValidation = require('./passwordValidation');
 const loginEmailVal = require('./loginEmailVal');
 const loginPassVal = require('./loginPassVal');
 const nameCatVal = require('./validateCatName');
+const titleValidation = require('./titleValidation');
+const contentValidation = require('./contentValidation');
+const categoriesIdValidation = require('./categoriesIdValidation');
 
 module.exports = {
     nameValidation,
@@ -12,5 +15,8 @@ module.exports = {
     loginEmailVal,
     loginPassVal,
     nameCatVal,
+    titleValidation,
+    contentValidation,
+    categoriesIdValidation,
 
 };
