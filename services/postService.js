@@ -15,6 +15,7 @@ const createPost = async ({ userId, title, content, categoryIds }) => {
     await Promise.all(
       categoryIds.map((id) => PostCategorie.create({ postId: newPost.id, categoryId: id })),
     );
+    // lógica seguida como referência: https://github.com/tryber/sd-015-b-project-blogs-api/pull/117
 
     return { code: 201, newPost };
 };
