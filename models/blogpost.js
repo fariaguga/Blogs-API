@@ -30,15 +30,11 @@ const Attributes = {
 
   published: {
     type: DataTypes.DATE,
-    allowNull: false,
   },
 
   updated: {
     type: DataTypes.DATE,
-    allowNull: false,
   },
-  createdAt: 'published',
-  updatedAt: 'updated',
 };
 
 module.exports = (sequelize) => {
@@ -47,7 +43,9 @@ module.exports = (sequelize) => {
     Attributes,
     {
       underscore: true,
-      // timestamps: false,
+      timestamps: true,
+      createdAt: 'published',
+      updatedAt: 'updated',
       tableName: 'BlogPosts',
     },
   );
