@@ -19,6 +19,17 @@ const postController = async (req, res) => {
     }
   };
 
+const getAllController = async (req, res) => {
+    try {
+        const { code, message, blogPost } = await postService.getAllPost();
+        if (message) return res.status(code).json({ message });
+        return res.status(code).json(blogPost);
+    } catch (error) {
+        return console.error(error);
+    }
+  };
+
   module.exports = {
       postController,
+      getAllController,
   };  
